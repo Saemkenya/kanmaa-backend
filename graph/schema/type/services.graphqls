@@ -1,0 +1,20 @@
+# Services object
+type Services {
+	# esse ID
+	id: ID!
+	# self-explanatory
+	createdAt: Time
+	# destination where the service was created
+	destination: Destination!
+}
+
+type ServicesConnection {
+	totalCount: Int!
+	edges: [ServicesEdge]
+	pageInfo: PageInfo!
+}
+
+type ServicesEdge {
+	cursor: ID!
+	node: Services
+}

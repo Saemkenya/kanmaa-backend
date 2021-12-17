@@ -1,0 +1,37 @@
+# newsletter object ...
+type Newsletter {
+	# School ID
+	id: ID!
+	# MainTopic of newsletter
+	mainTopic: String
+	# subtopic 1
+	topicOne: String
+	textOne: String
+	# subtopic 2
+	topicTwo: String
+	textTwo: String
+	# subtopic 3
+	topicThree: String
+	textThree: String
+	# subtopic 4
+	topicFour: String
+	textFour: String
+	# subtopic 5
+	topicFive: String
+	textFive: String
+	# destination
+	destination: Destination!
+	# self-explanatory
+	createdAt: Time
+}
+
+type NewslettersEdge {
+	cursor: ID!
+	node: Newsletter
+}
+
+type NewslettersConnection {
+	totalCount: Int!
+	edges: [NewslettersEdge]
+	pageInfo: PageInfo!
+}

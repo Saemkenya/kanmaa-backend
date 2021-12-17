@@ -1,0 +1,30 @@
+# payment object
+type Payment {
+	# pay ID
+	id: ID!
+	# whether its a debit or credit payment
+	paymentype: String
+	# service or items being paid
+	payingfor: String
+	# Amount
+	amount: Float
+	# Date
+	date: String
+	# account fee paid to
+	account: String
+	# destination where the payment belongs
+	destination: Destination
+	# self-explanatory
+	createdAt: Time
+}
+
+type PaymentsConnection {
+	totalCount: Int!
+	edges: [PaymentsEdge]
+	pageInfo: PageInfo!
+}
+
+type PaymentsEdge {
+	cursor: ID!
+	node: Payment
+}

@@ -1,0 +1,22 @@
+# location features object
+type LocationFeatures {
+	# Department ID
+	id: ID!
+	# Department Name
+	name: String
+	# feauture destination
+	destination: Destination!
+	# self-explanatory
+	createdAt: Time
+}
+
+type LocationFeaturesConnection {
+	totalCount: Int!
+	edges: [LocationFeaturesEdge]
+	pageInfo: PageInfo!
+}
+
+type LocationFeaturesEdge {
+	cursor: ID!
+	node: LocationFeatures
+}

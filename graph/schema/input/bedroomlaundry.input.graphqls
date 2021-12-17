@@ -1,0 +1,5 @@
+# bedroom and laundry input object
+input NewBedroomLaundry {
+  text: String!
+  userId: String!
+}

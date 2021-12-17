@@ -1,0 +1,34 @@
+# health and safety type ...
+type HealthSafety {
+  # School ID
+  id: ID!
+  # School Name
+  name: String
+  # Date in this format "2006-01-02"
+  date: Time
+  # TimeDate
+  timeDate: String
+  # Start
+  start: String
+  # Stop
+  stop: String
+  # Duration
+  duration: Float
+  # Done
+  done: Boolean
+  # destination
+  destination: Destination
+  # self-explanatory
+  createdAt: Time
+}
+
+type HealthSafetiesConnection {
+	totalCount: Int!
+	edges: [HealthSafetiesEdge]
+	pageInfo: PageInfo!
+}
+
+type HealthSafetiesEdge {
+	cursor: ID!
+	node: HealthSafety
+}

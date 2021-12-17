@@ -1,0 +1,26 @@
+# family object
+type Family {
+	# Fee ID
+	id: ID!
+	# Name
+	name: String
+	# date of exam
+	date: String
+	# grade of exam
+	grade: Grade!
+	# self-explanatory
+	createdAt: Time
+	# destination 
+	destination: Destination!
+}
+
+type FamiliesConnection {
+	totalCount: Int!
+	edges: [FamiliesEdge]
+	pageInfo: PageInfo!
+}
+
+type FamiliesEdge {
+	cursor: ID!
+	node: Exam
+}

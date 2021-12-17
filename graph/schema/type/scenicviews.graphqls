@@ -1,0 +1,24 @@
+# scenic views object
+type ScenicViews {
+	# School ID
+	id: ID!
+	# School Name
+	name: String
+	# stream classification
+	stream: String
+	# destination
+	destination: Destination!
+	# self-explanatory
+	createdAt: Time
+}
+
+type ScenicViewsConnection {
+	totalCount: Int!
+	edges: [ScenicViewsEdge]
+	pageInfo: PageInfo!
+}
+
+type ScenicViewsEdge {
+	cursor: ID!
+	node: ScenicViews
+}

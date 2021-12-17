@@ -1,0 +1,28 @@
+# heating and cooling object
+type HeatingCooling {
+	# Id of the att object
+	id: ID!
+	# student
+	student: Student
+	# lesson
+	lesson: Lesson
+	# attendance status
+	present: Boolean
+	# attendance confirmed
+	confirmed: Boolean
+	# school object
+	destination: Destination
+	# created at
+	createdAt: Time
+}
+
+type HeatingCoolingsConnection {
+	totalCount: Int!
+	edges: [HeatingCoolingsEdge]
+	pageInfo: PageInfo!
+}
+
+type HeatingCoolingsEdge {
+	cursor: ID!
+	node: HeatingCooling
+}

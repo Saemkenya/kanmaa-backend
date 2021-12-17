@@ -1,0 +1,28 @@
+# internet and office object
+type InternetOffice {
+	# Fee ID
+	id: ID!
+	# Grade
+	grade: Grade
+	# Year
+	year: String
+	# semester
+	semester: String
+	# amount
+	amount: Float
+	# destination where the office belongs
+	destination: Destination
+	# self-explanatory
+	createdAt: Time
+}
+
+type InternetOfficesConnection {
+	totalCount: Int!
+	edges: [InternetOfficesEdge]
+	pageInfo: PageInfo!
+}
+
+type InternetOfficesEdge {
+	cursor: ID!
+	node: InternetOffice
+}

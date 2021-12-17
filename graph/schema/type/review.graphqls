@@ -1,0 +1,40 @@
+# property review object
+type Review {
+	# Id of visitor
+	id: ID!
+	# Salute before name
+	salute: String
+	# Both names of visitor
+	name: String
+	# National ID number of the user
+	iDno: String
+	# Visitor's cell
+	cell: String
+	# Visitor's email
+	email: String
+	# Office to visit
+	visiting: String
+	# Purpose of visit
+	purpose: String
+	# Vehicle visitor is with if any
+	vehicle: String
+	# Other belongings to be noted
+	belongings: String
+	# Time in
+	time: Time
+	# School gate man incharge
+	createdAt: Time
+	# destination
+	destination: Destination
+}
+
+type ReviewsConnection {
+	totalCount: Int!
+	edges: [ReviewsEdge]
+	pageInfo: PageInfo!
+}
+
+type ReviewsEdge {
+	cursor: ID!
+	node: Review
+}

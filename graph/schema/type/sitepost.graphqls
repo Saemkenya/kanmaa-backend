@@ -1,0 +1,26 @@
+# web site post object
+type SitePost {
+	# Id of the user
+	id: ID!
+	# text
+	maintext: String
+	# Both names of the user
+	subtopic: String
+	# National ID number of the user
+	remarks: String
+	# Time this user instance was created in RESS
+	createdAt: Time
+	# destination
+	destination: Destination
+}
+
+type SitePostsConnection {
+	totalCount: Int!
+	edges: [SitePostsEdge]
+	pageInfo: PageInfo!
+}
+
+type SitePostsEdge {
+	cursor: ID!
+	node: SitePost
+}

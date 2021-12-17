@@ -1,0 +1,26 @@
+# outdoors object
+type Outdoors {
+	# diary ID
+	id: ID!
+	# tutor remarks in this diary entry
+	remarks: String
+	# diary belongs to this student
+	student: Student!
+	# request from school to guardian
+	request: String
+	# destination where the outdoors belongs
+	destination: Destination!
+	# self-explanatory
+	createdAt: Time
+}
+
+type OutdoorsConnection {
+	totalCount: Int!
+	edges: [OutdoorsEdge]
+	pageInfo: PageInfo!
+}
+
+type OutdoorsEdge {
+	cursor: ID!
+	node: Outdoors
+}

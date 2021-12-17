@@ -1,0 +1,26 @@
+# StaticFile object
+type StaticFile {
+	# esse ID
+	id: ID!
+	# uri path for the file
+	fileURI: String
+	# file type can be either user-thumb or destination gallery
+	fileType: staticFileType
+	# user who uploaded it
+	uploader: User!
+	# self-explanatory
+	createdAt: Time
+	# school where the essene was created
+	school: School!
+}
+
+type StaticFilesConnection {
+	totalCount: Int!
+	edges: [StaticFilesEdge]
+	pageInfo: PageInfo!
+}
+
+type StaticFilesEdge {
+	cursor: ID!
+	node: StaticFile
+}

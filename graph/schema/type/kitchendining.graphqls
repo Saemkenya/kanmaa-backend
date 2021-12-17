@@ -1,0 +1,32 @@
+# kitchen and dining object
+type KitchenDining {
+	# cult ID
+	id: ID!
+	# story title
+	title: String
+	# instructions to guardian and students
+	instructions: String
+	# main story body
+	story: String
+	# questions from tutor
+	quiz: String
+	# lessons learnt/entered by student
+	lessons: String
+	# culture observed by guardian
+	culture: String
+	# destination of saga
+	destination: Destination
+	# self explanatory
+	createdAt: Time
+}
+
+type KitchenDiningsConnection {
+	totalCount: Int!
+	edges: [KitchenDiningsEdge]
+	pageInfo: PageInfo!
+}
+
+type KitchenDiningsEdge {
+	cursor: ID!
+	node: KitchenDining
+}

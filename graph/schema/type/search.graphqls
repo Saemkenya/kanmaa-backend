@@ -1,0 +1,29 @@
+# search result object
+union SearchResult =
+    Bathroom
+  | BedroomLaundry
+  | CancelationPolicy
+  | CheckinCheckout
+  | Destination
+  | Entertainment
+  | Family
+  | HealthSafety
+  | HeatingCooling
+  | HomeSafety
+  | HouseRules
+  | InternetOffice
+  | KitchenDining
+  | LocationFeatures
+  | Message
+  | Newsletter
+  | NotIncluded
+  | Outdoors
+  | ParkingFacilities
+  | Payment
+  | PaymentStatus
+  | Review
+  | ScenicViews
+  | Services
+  | SitePost
+  | Thread
+  | User
