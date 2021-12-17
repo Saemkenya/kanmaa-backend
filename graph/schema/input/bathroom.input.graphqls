@@ -1,0 +1,5 @@
+# bathroom input object
+input NewBathroom {
+  text: String!
+  userId: String!
+}

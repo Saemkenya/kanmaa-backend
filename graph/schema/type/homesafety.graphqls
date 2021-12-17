@@ -1,0 +1,28 @@
+# home safety object
+type HomeSafety {
+	# Book ID
+	id: ID!
+	# Book Name
+	name: String
+	# isbn no
+	isbn: String
+	# book auther
+	authors: String
+	# revision year/ version
+	revision: String
+	# destination where the home safety belongs
+	school: School
+	# self-explanatory
+	createdAt: Time
+}
+
+type HomeSafetiesConnection {
+	totalCount: Int!
+	edges: [HomeSafetiesEdge]
+	pageInfo: PageInfo!
+}
+
+type HomeSafetiesEdge {
+	cursor: ID!
+	node: HomeSafety
+}

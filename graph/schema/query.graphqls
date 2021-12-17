@@ -1,0 +1,46 @@
+# Query entry points to the kanmaa backend api
+type Query {
+  # search the entire kanmaa backend database
+  search(text: String!): [SearchResult]!
+
+  # querry for a destination by its id
+  destination(id: String!): Destination
+
+  # querry for all destinations
+  destinations(): DestinationsConnection
+
+  # querry for user by email address
+  user(email: String!): User
+  # query for all users in the system
+  users(first: Int, after: String): UsersConnection!
+
+  # querry for a message by id
+  message(id: String!): Message
+  # query for all messages in the system
+  messages(first: Int, after: String): MessagesConnection!
+
+  # querry for a check in check out by id
+  cico(id: String!): CheckinCheckout
+  # query for all checkins and checkouts in the system
+  cicos(first: Int, after: String): CheckinCheckoutConnection!
+
+  # querry for a payment by id
+  payment(id: String!): Payment
+  # query for all payments in the system
+  payments(first: Int, after: String): PaymentsConnection!
+
+  # querry for a newsletter by id
+  newsletter(id: String!): Newsletter
+  # query for all newsletters in the system
+  newsletters(first: Int, after: String): NewslettersConnection!
+
+  # querry for a web site post by id
+  sitepost(id: String!): SitePost
+  # query for all web site post in the system
+  siteposts(first: Int, after: String): SitePostsConnection!
+
+  # querry for a review by id
+  review(id: String!): Review
+  # query for all newsletters in the system
+  reviews(first: Int, after: String): ReviewsConnection!
+}

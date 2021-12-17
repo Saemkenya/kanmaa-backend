@@ -1,0 +1,863 @@
+# All mutations supported by the RESS API
+type Mutation {
+	# upload a file
+	addFile(
+		# the file to upload in bytes
+		file: Upload!
+		# what service requires this file
+		fileType: fileTypeEnum!
+		# specific file owner
+		requiredByID: String!
+		# who uploaded the file
+		uploader: String!
+		# Where do you want the file stored in the file system
+		fileURI: String!
+		# school involved
+		schoolEmail: String!
+	): StaticFile
+
+	# Create new user to the system
+	addUser(
+		# Email for the new user
+		email: String!
+		# Password for the new user
+		password: String!
+		# A salute before the name
+		salute: saluteEnum!
+		# Both names of the new user
+		name: String!
+		# National Identification Number of the new user
+		IDno: String!
+		# NHIF number which include students covered
+		NHIFno: String!
+		# Cell phone number of the new user
+		cell: String!
+		# gender of user
+		gender: genderEnum!
+		# SchoolId of where the user is assigned
+		school: String!
+		# Address of the user
+		addr_poBox: String!
+		addr_postalCode: String!
+		addr_district: String!
+		addr_county: String!
+		addr_nationality: String! # thumbnail: ImageFile! # thumbnail: Upload,
+	): User
+
+	# Add new student to the system
+	addStudent(
+		# Name of the new student
+		name: String!
+		# NemisNo of the new student
+		nemisNo: String!
+		# NHIF status
+		nhifStatus: Boolean!
+		# Birth Certificate number of the new student
+		bCertNo: String!
+		# A nick name for the new student
+		nickName: String!
+		# date of birth
+		dob: Time!
+		# hobies
+		hoby1: String!
+		hoby2: String!
+		hoby3: String!
+		# role models
+		roleModel1: String!
+		roleModel2: String!
+		roleModel3: String!
+		# careers in mind
+		career1: String!
+		career2: String!
+		career3: String!
+		# personal motto
+		Motto: String!
+		# student blood group
+		BloodGroup: String!
+		# self explanatory
+		BestFriend: String!
+		# landuages spoken
+		language1: String!
+		language2: String!
+		language3: String!
+		#students favourites
+		Game: String!
+		Subject: String!
+		Book: String!
+		Quote: String!
+		Animal: String!
+		Device: String!
+		# use the current grade to calculate initial fee balance
+		grade: gradeEnum!
+		# School ID of the new student
+		school: String!
+		# Parent
+		parent: String!
+		# Initial fee deposit can be 0 or all previous payments
+		fees: Float!
+		# Quick answers:
+		sharemeal: Boolean!
+		greetstranger: Boolean!
+		firstaider: Boolean!
+	): Student
+
+	# Add new school to the system
+	addSchool(
+		# School Name
+		name: String!
+		# School motto
+		motto: String!
+		# Wired phone connection to the school
+		phone: String!
+		# School electric mail address
+		email: String!
+		# world wide web address of the school
+		website: String!
+		# P.O Box number of the school
+		addrPoBox: String!
+		# Postal-code
+		addrPostalCode: String!
+		# postal town
+		addrTown: String!
+		# county where school is situated
+		addrCounty: String!
+		# country where is school is located
+		addrCountry: String! # All users associated with the school
+	): School
+
+	# Add new department to school
+	addDepartment(
+		# Department Name
+		name: deptEnum!
+		# Id of the head of department
+		hod: String!
+		# school id
+		school: String!
+	): Department
+
+	# Add new Subject to school
+	addSubject(
+		# Subject Name
+		name: subjectEnum!
+		# Id of the head of department
+		department: deptEnum!
+		# school id
+		schoolEmail: String!
+	): Subject
+
+	# Add new grade to school
+	addGrade(
+		# Grade Name
+		name: gradeEnum!
+		# Id of the head of department
+		stream: String!
+		# Glass teacher
+		classTeacher: String!
+		# Grade motto
+		motto: String!
+		# school id
+		schoolEmail: String!
+	): Grade
+
+	# Add new lesson to school
+	addLesson(
+		# Lesson Name
+		name: String!
+		# Date of the calendar
+		date: String!
+		# Lesson time of the day
+		timeDate: periodEnum!
+		# tutor involved
+		tutorEmail: String!
+		# grade to be taught
+		grade: gradeEnum!
+		# Id of the head of department
+		subject: subjectEnum!
+		# starting time
+		start: String!
+		# stop time
+		stop: String!
+		# duration
+		duration: Float!
+		# whether in future
+		done: Boolean!
+		# tutor remarks
+		remarks: String!
+		# school id
+		school: String!
+	): Lesson
+
+	AddTopic(
+		# id of the lesson of this topic
+		lesson: String!
+		# Strand or topic of the lesson
+		strand: String!
+		# SubStrand or subtopic of the lesson
+		subStrand: String!
+		# expected Outcomes from the lesson
+		outComes: String!
+		# Experiences from the lesson
+		experiences: String!
+		# Inquiries of the lesson
+		inquiries: String!
+		# Competencies to be obtained by student
+		competencies: String!
+		# LifeSkills acquired
+		lifeSkills: String!
+		# ESD DRR of the lesson
+		ESDDRR: String!
+		# Values acquired
+		values: String!
+		# OtherAreas affected
+		otherAreas: String!
+		# CommunityActivities to accompany the lesson
+		communityActivities: String!
+		# NonFormalActivity accompanying the lesson
+		nonFormalActivity: String!
+		# Assessment of the student
+		assessment: String!
+		# SchoolEmail
+		schoolEmail: String!
+	): Lesson
+
+	# Add new book to school
+	addBook(
+		# Department Name
+		name: String!
+		# Id of the head of department
+		isbn: String!
+		# comma separated String of authors
+		authors: String!
+		# revision
+		revision: String!
+		# school id
+		school: String!
+	): Book
+
+	# Add lend to book
+	LendOut(
+		# book involved
+		bookIsbn: String!
+		# date book was received
+		received_on: String!
+		# date book is due
+		due_on: String!
+		# nemis ID of student lending book
+		student: String!
+		# librarian authorizing lend
+		librarian: String!
+		# school id
+		school: String!
+	): Lend
+
+	# receive back book from lend
+	ReceiveBook(
+		# id of lend entry during lending out
+		lendId: String!
+		# condition of book as received back
+		condition: conditionEnum!
+	): Lend
+
+	# Add new fee structure
+	AddFee(
+		# name of the grade involved
+		grade: gradeEnum!
+		# year of effect
+		year: String!
+		# amount in structure
+		amount: Float!
+		# semester
+		semester: String!
+		# school id
+		school: String!
+	): Fee
+
+	NewPayment(
+		# debit or credit
+		paytype: paymentTypeEnum!
+		# fees, salary, supplies, refund other
+		payFor: paymentForEnum!
+		# email/nemisID of receiver
+		receiver: String!
+		# Amount
+		amount: Float!
+		# Date
+		date: String!
+		# account fee paid to
+		account: accEnum!
+		# user who made the payment
+		payeemail: String!
+		# school where the book belongs
+		school: String!
+	): Payment
+
+	# Exam type fields
+	AddExam(
+		# Name of exam
+		name: String!
+		# date of exam
+		date: String!
+		# name of grade of exam
+		grade: gradeEnum!
+		# school where the book belongs
+		school: String!
+	): Exam
+
+	# Score type fields
+	AddScore(
+		# The actual marks scored
+		score: Float!
+		# nemis ID of student involved
+		studentNemis: String!
+		# subject id of the current score
+		subject: subjectEnum!
+		# exam id of which the score is associated
+		examID: String!
+		# school where the book belongs
+		schoolEmail: String!
+	): Score
+
+	AddTimeTable(
+		# date & day to be the active timetable for grade
+		Day: String!
+		# id of lesson 1
+		Lesson1: String!
+		# id of lesson 2
+		Lesson2: String!
+		# id of lesson 3
+		Lesson3: String!
+		# id of lesson 4
+		Lesson4: String!
+		# id of lesson 5
+		Lesson5: String!
+		# id of lesson 6
+		Lesson6: String!
+		# id of lesson 7
+		Lesson7: String!
+		# id of lesson 8
+		Lesson8: String!
+		# name of grade where timetable belongs
+		Grade: gradeEnum!
+		# school where timetable belong to
+		SchoolEmail: String!
+	): TimeTable
+
+	# Create new user to the system
+	newVisitor(
+		# visitor's salute
+		Salute: String!
+		# visitor's name
+		Name: String!
+		# visitor's id number
+		IDno: String!
+		# visitor's cell number
+		Cell: String!
+		# visitor's email address
+		Email: String!
+		# office to be visited
+		Visiting: String!
+		# visitor's purpose of visit
+		Purpose: String!
+		# visitor's vehicle if any
+		Vehicle: String!
+		# visitor's belongings if any
+		Belongings: String!
+		# visit number?
+		VisitingFreq: Float!
+		# gateman who authorized the visitor
+		AuthorizedBy: String!
+		# school ni kama kawa
+		SchoolEmail: String!
+	): Visitor
+
+	NewDiary(
+		# remarks for the diary
+		TutorRemarks: String!
+		# student for the diary
+		Student: String!
+		# any special requests from school to guardian
+		SchoolRequest: String!
+		# Tutor entering remarks
+		TutorMail: String!
+		# school for this activity
+		SchoolEmail: String!
+	): Diary
+
+	ViewDiary(
+		# guardian viewing diary
+		GuardianEmail: String!
+		# dairy viewed
+		DiaryID: String!
+		# school logic
+		SchoolEmail: String!
+	): Diary
+
+	AddProduct(
+		# unique product name
+		Name: String!
+		# product buying price
+		Cost: Float!
+		# quantity received
+		Quantity: Float!
+		# email of product supplier supplier
+		Supplier: String!
+		# Category where the product belongs
+		Category: productCategoryEnum!
+		# date when product was received
+		ReceivedOn: String!
+		# Email of Storekeeper who received the item
+		ReceivedBy: String!
+		# allowed minimum quantity
+		AllowedMinimum: Float!
+		# school where the product belongs
+		SchoolEmail: String!
+	): Product
+
+	DispenseProduct(
+		# unique product name
+		Name: String!
+		# confirm category
+		Category: String!
+		# quantity received
+		Quantity: Float!
+		# email of school staff receiving item
+		DispenseTo: String!
+		# mail of storekeeper dispensing item
+		DispensedBy: String!
+		# school where the product belongs
+		SchoolEmail: String!
+	): Product
+
+	NewCulture(
+		# story title
+		Title: String!
+		# instruction to guardians
+		Instructions: String!
+		# main story body
+		Story: String!
+		# accompanying brain storm quiz
+		Quiz: String!
+		# lessons learnt to be filled by student
+		Lessons: String!
+		# culture taught to be filled by guardian
+		Culture: String!
+		# grade receiving the story
+		Grade: gradeEnum!
+		# school where said saga belongs
+		SchoolEmail: String!
+	): Culture
+
+	NewEssene(
+		# user concerned
+		UserMail: String!
+		# school they belong to
+		SchoolEmail: String!
+	): Essene
+
+	# school worker checkin
+	studentCheckin(
+		# student nemis No.
+		nemisID: String!
+		# school ni kama kawa
+		schoolEmail: String!
+	): StudentinStudentout
+
+	# school worker checkout
+	studentCheckout(
+		# checkin-checkout ID
+		sisoID: String!
+	): StudentinStudentout
+
+	# school worker checkin
+	staffCheckin(
+		# email of the worker checking in
+		workerEmail: String!
+		# gateman who authorized the worker
+		authorizedBy: String!
+		# school ni kama kawa
+		schoolEmail: String!
+	): CheckinCheckout
+
+	# school worker checkout
+	staffCheckout(
+		# checkin-checkout ID
+		cicoID: String!
+	): CheckinCheckout
+
+	SendAnnouncement(
+		# group of concern to this announcement
+		Topic: String!
+		# author of this announcement on behalf the sch
+		By: String!
+		# message content of ann
+		Message: String!
+		# school requiring the announcement
+		SchoolEmail: String!
+	): Announcement
+
+	ReadAnnouncement(
+		# announcement ID
+		AnnounceID: String!
+		# user reading the announcement
+		User: String!
+		# read boolean
+		Read: Boolean!
+		# school associated
+		SchoolEmail: String!
+	): Announcement
+
+	SendMessage(
+		# Topic of the messafe
+		Topic: String!
+		# main message content
+		Text: String!
+		# email of sender/ composer
+		User: String!
+		# threadID or "NEW" to start a new thread
+		Thread: String!
+		# recepient school
+		School: String!
+	): Message
+
+	# Visitor checkout call
+	VisitorCheckout(
+		# Id of visitor leaving school
+		visitorID: String!
+	): Visitor
+
+	# AddRole mutation call
+	AddRole(
+		# Email of the user to get the role
+		userEmail: String!
+		# Name of role to add to user
+		roleName: rolesEnum!
+	): User
+
+	# RestorRoles mutation call
+	RestoreRoles(
+		# Email of the user to get the role
+		userEmail: String!
+	): User
+
+	# promote std mutation call
+	PromoteStudent(
+		# grade to be promoted to
+		Grade: gradeEnum!
+		# student to be promoted
+		StudentNemisID: String!
+		# school where they belong
+		SchoolEmail: String!
+	): Student
+
+	# ConfirmPayment mutation call
+	ConfirmPayment(
+		# ID of Payment to confirm
+		PayID: String!
+		# Confirmer's email
+		Email: String!
+	): Payment
+
+	# Mark lesson attendance
+	ConfirmLessonAttended(
+		# ID of attendance obj 2 confirm
+		attendanceID: String!
+		# Student gir byte from RESS-EYE ML protocal
+		StudentGIF: Upload!
+	): Attendance
+
+	# Confirm lesson attendance
+	AttendLesson(
+		# student attending lesson
+		nemisID: String!
+		# lesson attended
+		lessonID: String!
+		# school where it belongs
+		school: String!
+	): Attendance
+
+	AddStudentGuardian(
+		# Student nemis id
+		studentNemis: String!
+		# parent email
+		guardianEmail: String!
+		#school email
+		schoolEmail: String!
+	): Student
+
+	# Delete by item ID mutation calls
+	DelAnnouncement(announcementID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelAnnounceUserConn(connID: ID!): Boolean
+
+	DelAttendance(attendanceID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelBook(bookID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelCico(cicoID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelSiso(sisoID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelParentingCulture(ParentingCultureID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelDepartment(deptID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelDiary(diaryID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelUserDiaryConn(connID: ID!): Boolean
+
+	DelDispensedProduct(disProductID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelProduct(prodID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelEssene(esseneID: ID!): Boolean
+
+	DelExam(examID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelFee(feeID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelGrade(gradeID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelLend(lendID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelLesson(lssnID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelMessage(msgID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelPayment(payID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelSchool(schoolID: ID!): Boolean
+
+	DelScore(scoreID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelStudent(nemisID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelSubject(subjectID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelThread(threadID: ID!): Boolean
+
+	DelTimeTable(ttableID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelUser(userEmail: String!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	DelVisitor(visitorID: ID!, DeletedByName: String!, DeletedByMail: String!): Boolean
+
+	# Update announcement by ID mutation call
+	editAnnouncement(announcementID: ID!, topic: String, announcerEmail: String, message: String): Announcement
+
+	# Update book by ID mutation call
+	editBook(bookID: ID!, name: String, isbn: String, authors: String, revision: String): Book
+
+	# Update parenting culture by ID mutation call
+	editCulture(
+		ParentingCultureID: ID!
+		storyTitle: String
+		instructions: String
+		story: String
+		quiz: String
+		lessonsLearnt: String
+		cultureTaught: String
+		gradeToReceive: gradeEnum
+	): Culture
+
+	# Update department by ID mutation call
+	editDepartment(deptID: ID!, name: deptEnum, hodEmail: String): Department
+
+	# Update std diary by ID mutation call
+	editDiary(diaryID: ID!, remarks: String, studentNemis: String, request: String, tutorEmail: String): Diary
+
+	# Update dispensed product by ID mutation call
+	editDispensedProduct(
+		disProductID: ID!
+		productName: String
+		quantity: Float
+		category: productCategoryEnum
+		dispensedTo: String
+		dispensedBy: String
+	): DispensedProduct
+
+	# Update product by ID mutation call
+	editProduct(
+		prodID: ID!
+		name: String
+		cost: Float
+		quantity: Float
+		supplier: String
+		category: productCategoryEnum
+		receivedOn: String
+		receivedBy: String
+		minimumQty: Float
+	): Product
+
+	# Update exam by ID mutation call
+	editExam(examID: ID!, name: String, date: Time, gradeName: gradeEnum): Exam
+
+	# Update fee by ID mutation call
+	editFee(feeID: ID!, grade: gradeEnum, year: String, amount: Float, semester: senesterEnum): Fee
+
+	# Update grade by ID mutation call
+	editGrade(gradeID: ID!, name: gradeEnum, stream: String, classTeacher: String, gradeMotto: String): Grade
+
+	# Update newsletter by ID mutation call
+	editNewsletter(
+		newsletterID: ID!
+		mainTopic: String
+		topicOne: String
+		textOne: String
+		topicTwo: String
+		textTwo: String
+		topicThree: String
+		textThree: String
+		topicFour: String
+		textFour: String
+		topicFive: String
+		textFive: String
+		rubberStampURL: String
+	): Newsletter
+
+	# Update lesson by ID mutation call
+	editLesson(
+		lssnID: ID!
+		name: String
+		date: Time
+		timedate: periodEnum
+		grade: gradeEnum
+		subject: subjectEnum
+		start: Time
+		stop: Time
+		duration: Float
+		done: Boolean
+		remarks: String
+		tutorEmail: String
+	): Lesson
+
+	# Update message by ID mutation call
+	editMessage(msgID: ID!, topic: String, text: String, userEmail: String, threadID: ID): Message
+
+	# Update payment by ID mutation call
+	editPayment(
+		payID: ID!
+		paymentType: paymentTypeEnum
+		payingFor: paymentForEnum
+		receiverEmailNemisid: String
+		amount: Float
+		date: Time
+		account: accEnum
+		payeeEmail: String
+	): Payment
+
+	# Update school by ID mutation call
+	editSchool(
+		schoolID: ID!
+		name: String
+		motto: String
+		phone: String
+		email: String
+		website: String
+		poBox: String
+		poCode: String
+		district: String
+		county: String
+		country: String
+	): School
+
+	# Update score by ID mutation call
+	editScore(scoreID: ID!, score: Float, studentNemisID: String, subject: subjectEnum, examID: ID): Score
+
+	# Update student by ID mutation call
+	editStudent(
+		stdID: ID!
+		name: String
+		nemisNo: String
+		nhif: String
+		bCertNo: String
+		nickName: String
+		dateOfBirth: Time
+		hoby1: String
+		hoby2: String
+		hoby3: String
+		roleModel1: String
+		roleModel2: String
+		roleModel3: String
+		career1: String
+		career2: String
+		career3: String
+		personalMotto: String
+		bloodGroup: String
+		bestFriend: String
+		language1: String
+		language2: String
+		language3: String
+		quickAnswer1: String
+		quickAnswer2: String
+		quickAnswer3: String
+		favGame: String
+		favSubject: String
+		favBook: String
+		favQuote: String
+		favAnimal: String
+		favAnimation: String
+		favDevice: String
+	): Student
+
+	# Update subject by ID mutation call
+	editSubject(
+		subjectID: ID!
+		name: subjectEnum
+		departmentName: deptEnum
+		weeklyLessons: Float
+		lessonDuration: Float
+	): Subject
+
+	# Update timetable by ID mutation call
+	editTimeTable(
+		ttableID: ID!
+		day: String
+		done: Boolean
+		lesson1ID: ID
+		lesson2ID: ID
+		lesson3ID: ID
+		lesson4ID: ID
+		lesson5ID: ID
+		lesson6ID: ID
+		lesson7ID: ID
+		lesson8ID: ID
+		grade: gradeEnum
+	): TimeTable
+
+	# Update user by ID mutation call
+	editUser(
+		userID: ID!
+		salute: saluteEnum
+		name: String
+		iDNo: String
+		nhifNo: String
+		cell: String
+		email: String
+		password: String
+		poBox: String
+		poCode: String
+		district: String
+		county: String
+		nationality: String
+		roles: rolesEnum
+	): User
+
+	# Update visitor by ID mutation call
+	editVisitor(
+		visitorID: ID!
+		salute: saluteEnum
+		name: String
+		iDNO: String
+		cell: String
+		email: String
+		visitingOffice: String
+		purpose: String
+		vehicle: String
+		belongings: String
+		timeIn: Time
+		timeOut: Time
+		thumbScan: String
+		visitingFreq: Float
+		authBy: String
+	): Visitor
+}

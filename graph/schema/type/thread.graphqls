@@ -1,0 +1,24 @@
+# message thread object
+type Thread {
+	# Msg ID
+	id: ID!
+	# new thread?
+	new: Boolean
+	# messages in this thread
+	messages: MessagesConnection!
+	# destination
+	destination: Destination!
+	# self-explanatory
+	createdAt: Time
+}
+
+type ThreadsConnection {
+	totalCount: Int!
+	edges: [ThreadsEdge]
+	pageInfo: PageInfo!
+}
+
+type ThreadsEdge {
+	cursor: ID!
+	node: Thread
+}

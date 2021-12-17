@@ -1,0 +1,28 @@
+# check in check out object
+type CheckinCheckout {
+	# Msg ID
+	id: ID!
+	# student and grade involved
+	user: User
+	# msg text
+	timeIn: Time
+	# message author
+	onDestination: Boolean
+	# thread where message belongs to
+	timeOut: Time
+	# authorizedBy
+	duration: Float
+	# self-explanatory
+	createdAt: Time
+}
+
+type CheckinCheckoutConnection {
+	totalCount: Int!
+	edges: [CheckinCheckoutEdge]
+	pageInfo: PageInfo!
+}
+
+type CheckinCheckoutEdge {
+	cursor: ID!
+	node: CheckinCheckout
+}

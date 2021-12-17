@@ -1,6 +1,7 @@
 # kanmaa-backend
 Kanmaa adeventures backend APIs 
 
-The backend API's expose graphQl servers to the frontend Kanmaa Adventures application.
+to regerate after schema reproduction
 
-GqlGen graphQL code is the base of the system.
+go run github.com/99designs/gqlgen generate
+

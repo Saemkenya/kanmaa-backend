@@ -1,0 +1,88 @@
+# single destination object
+type Destination { 
+	# School ID
+	id: ID!
+	# School Name
+	name: String
+	# School motto
+	motto: String
+	# Logo URL
+	assets: String
+	# Wired phone connection to the school
+	phone: String
+	# School electric mail address
+	email: String
+	# world wide web address of the school
+	website: String
+	# P.O Box number of the school
+	addrPoBox: String
+	# Postal-code
+	addrPostalCode: String
+	# postal town
+	addrTown: String
+	# county where school is situated
+	addrCounty: String
+	# country where is school is located
+	addrCountry: String
+	# All guests ever checked-in to destination
+	guests: UserConnection!
+	# payments made to this destination
+	payments: PaymentsConnection!
+	# bathroom
+	bathroom: Bathroom!
+	# bedroom and laundry
+	bedroomlaundry: BedroomLaundry!
+	# entertainment
+	entertainment: Entertainment!
+	# heating and cooling
+	heatingcooling: HeatingCooling!
+	# home safety
+	homesafety: HomeSafety!
+	# kitchen and dining
+	kitchendining: KitchenDining!
+	# location features
+	locationfeatures: LocationFeatures!
+	# outdoor
+	outdoor: Outdoor!
+	# parking and facilities
+	parkingfacilities: ParkingFacilities!
+	# services
+	services: Services!
+	# family
+	family: Family!
+	# internet and office
+	internetoffice: InternetOffice!
+	# scenic views
+	scenicviews: ScenicViews!
+	# not included
+	notincluded: NotIncluded!
+	# house rules
+	houserules: HouseRules!
+	# health and safety
+	healthsafety: HealthSafety!
+	# cancelation policy
+	cancelationpolicy: CancelationPolicy!
+	# gallery
+	gallery: StaticFilesConnection!
+	# newsletters
+	newsletters: NewsLettersConnection!
+	# short post about destination
+	post: WebsitePost!
+	# reviews of this destination by clients
+	reviews: ReviewsConnection!
+	# archives from this destination
+	archives(objType: archiveTypeEnum): ArchivesConnection!
+	# self-explanatory
+	createdAt: Time
+}
+
+type DestinationsConnection {
+	totalCount: Int!
+	edges: [DestinationsEdge]
+	pageInfo: PageInfo!
+}
+
+type DestinationsEdge {
+	cursor: ID!
+	node: Destination
+}

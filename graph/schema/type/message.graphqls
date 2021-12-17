@@ -1,0 +1,32 @@
+# message object
+type Message {
+	# Msg ID
+	id: ID!
+	# Msg topic
+	topic: String
+	# msg text
+	text: String
+	# message author
+	returnUser: User
+	# type of msg [review, newsletter, post]
+	type: msgType
+	# thread where message belongs to
+	thread: String
+	# if read by recipient
+	delivered: Boolean
+	# destination concerned with this message
+	destination: Destination!
+	# self-explanatory
+	createdAt: Time
+}
+
+type MessagesConnection {
+	totalCount: Int!
+	edges: [MessagesEdge]
+	pageInfo: PageInfo!
+}
+
+type MessagesEdge {
+	cursor: ID!
+	node: Message
+}

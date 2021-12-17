@@ -1,0 +1,50 @@
+# bedroom and laundry object
+type BedroomLaundry {
+	# Id of the user
+	id: ID!
+	# Salute before name
+	salute: String
+	# Both names of the user
+	name: String
+	# National ID number of the user
+	iDno: String
+	# Cell phone number of the user
+	cell: String
+	# User electronic mail address
+	email: String
+	# User gender
+	gender: String
+	# User roles
+	roles: String
+	# if user is SemiFormal Staff member
+	semiFormal: Boolean
+	# thumbnail uri
+	thumbNail: String
+	# Post Office Box Number
+	addrPoBox: String
+	# Postal code
+	addrPostalCode: String
+	# Residing town
+	addrDistrict: String
+	# Residing county
+	addrCounty: String
+	# Nigga nationality
+	addrNationality: String
+	# User machine IP address
+	ipAddress: String
+	# Time this user instance was created in RESS
+	createdAt: Time
+	# Destination ID
+	destination: Destination
+}
+
+type BedroomLaundriesConnection {
+	totalCount: Int!
+	edges: [BedroomLaundriesEdge]
+	pageInfo: PageInfo!
+}
+
+type BedroomLaundriesEdge {
+	cursor: ID!
+	node: BedroomLaundry
+}

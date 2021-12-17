@@ -1,0 +1,26 @@
+# house rules object
+type HouseRules {
+	# lend ID
+	id: ID!
+	# date received
+	received_on: String
+	# date due
+	due_on: String
+	# date of hand-over
+	handed_over_on: String
+	# destination where the rules belongs
+	destination: Destination
+	# self-explanatory
+	createdAt: Time
+}
+
+type HouseRulesConnection {
+	totalCount: Int!
+	edges: [HouseRulesEdge]
+	pageInfo: PageInfo!
+}
+
+type HouseRulesEdge {
+	cursor: ID!
+	node: HouseRules
+}

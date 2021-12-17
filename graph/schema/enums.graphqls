@@ -1,0 +1,94 @@
+enum genderEnum {
+	MALE
+	FEMALE
+	INTERSEX
+}
+
+enum rolesEnum {
+	Admin
+	HotelAdmin
+	HomeAdmin
+	Visitor
+	Guest
+	TempUser
+}
+
+enum saluteEnum {
+	Mr
+	Mrs
+	Miss
+	Dr
+	Pst
+	Eng
+	Prof
+	Sir
+}
+
+enum accEnum {
+	mPesa
+	Equitel
+	VISA
+	Burser
+}
+
+enum conditionEnum {
+	BetterThanAdvertised
+	AsAdvertised
+  GoodCondition
+	AverageCondition
+	PoorCondition
+	Miserable
+}
+
+enum destinationTypeEnum {
+	Hotel
+	Home
+	Campsite
+	BeachFront
+  Cabin
+  SwimmingPool
+  Unique
+}
+
+enum paymentTypeEnum {
+	Partnerremedy
+	Income
+	Refund
+  Commision
+}
+
+enum staticFileTypeEnum {
+	GalleryFile
+	NewsletterFile
+	UserThumb
+}
+
+enum archiveTypeEnum {
+	Bathroom
+  BedroomLaundry
+  CancelationPolicy
+  CheckinCheckout
+  Destination
+  Entertainment
+  Family
+  HealthSafety
+  HeatingCooling
+  HomeSafety
+  HouseRules
+  InternetOffice
+  KitchenDining
+  LocationFeatures
+  Message
+  Newsletter
+  NotIncluded
+  Outdoors
+  ParkingFacilities
+  Payment
+  PaymentStatus
+  Review
+  ScenicViews
+  Services
+  SitePost
+  Thread
+  User
+}

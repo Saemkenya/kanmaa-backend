@@ -1,0 +1,26 @@
+# entertainment object
+type Entertainment {
+	# Id of the ann object
+	id: ID!
+	# group to be concerned about this ann
+	topic: String
+	# user who posted the announcement
+	by: User
+	# ann message text
+	message: String
+	# school object
+	destination: Destination
+	# created at
+	createdAt: Time
+}
+
+type EntertainmentsConnection {
+	totalCount: Int!
+	edges: [EntertainmentsEdge]
+	pageInfo: PageInfo!
+}
+
+type EntertainmentsEdge {
+	cursor: ID!
+	node: Entertainment
+}

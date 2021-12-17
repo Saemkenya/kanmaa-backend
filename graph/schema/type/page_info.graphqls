@@ -1,0 +1,6 @@
+# page info object
+type PageInfo {
+    startCursor: ID
+    endCursor: ID
+    hasNextPage: Boolean!
+}

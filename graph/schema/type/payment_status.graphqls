@@ -1,0 +1,28 @@
+# payment status object
+type PaymentStatus {
+	# Id of the student
+	id: ID!
+	# Name of the student
+	balance: Float
+	# Nemis ID of the student
+	confirmed: Boolean
+	# NHIF status
+	confirmedOn: Time
+	# Birth Certificate Number of the student
+	confirmedBy: String
+	# time student was entered to RESS
+	createdAt: Time
+	# destiantion that status belong
+	destination: Destination
+}
+
+type StatusConnection {
+	totalCount: Int!
+	edges: [StatusEdge]
+	pageInfo: PageInfo!
+}
+
+type StatusEdge {
+	cursor: ID!
+	node: PaymentStatus
+}

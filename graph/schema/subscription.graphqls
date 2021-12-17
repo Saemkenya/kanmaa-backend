@@ -1,0 +1,27 @@
+# Client subscription calls
+type Subscription {
+  # new message subscription
+  messageAdded: Message!
+  # new message subscription
+  messageViewed: User!
+  # guest checked in subscription
+  guestCheckIn: User!
+  # guest checked out subscription
+  guestCheckOut: User!
+  # nu user in kanmaa subscription
+  userAdded: User!
+  # nu destination in kanmaa subscription
+  destinationAdded: Destination!
+  # new payment subscription
+  paymentMade: Payment!
+  # payment confirmed subscription
+  paymentConfirmed: PaymentStatus!
+  # new newletter subscription
+  newsletterAdded: Newsletter!
+  # newletter read subscription
+  newsletterRead: User!
+  # new review subscription
+  reviewAdded: Review!
+  # kanmaa item archived
+  itemArchived: Archive!
+}

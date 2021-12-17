@@ -1,0 +1,21 @@
+# parking and other facilities object
+type ParkingFacilities {
+	id: ID!
+	# quantity received
+	quantity: Float
+	# destination where facilities belongs
+	destination: Destination
+	# self-explanatory
+	createdAt: Time
+}
+
+type ParkingFacitiesConnection {
+	totalCount: Int!
+	edges: [ParkingFacilitiesEdge]
+	pageInfo: PageInfo!
+}
+
+type ParkingFacilitiesEdge {
+	cursor: ID!
+	node: ParkingFacilities
+}

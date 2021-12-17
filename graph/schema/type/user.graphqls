@@ -1,0 +1,66 @@
+type User {
+  # Id of the user
+  id: ID!
+  # Salute before name
+  salute: String
+  # Both names of the user
+  name: String
+  # National ID number of the user
+  iDno: String
+  # Cell phone number of the user
+  cell: String
+  # Cell phone number of the user
+  cell2: String
+  # User electronic mail address
+  email: String
+  # User electronic mail address
+  email2: String
+  # gender of user
+  gender: String
+  # User roles
+  roles: String
+  # if user is confirmed
+  active: Boolean
+  # thumbnail uri
+  thumbNail: String
+#   reponse rate
+  responseRate: String
+#   response time
+  responseTime: String
+  # languages spoken
+  languages: []string
+  # confirmed [Identity,Email address, Phone number]
+  confirmed: [3]String
+  # Post Office Box Number
+  addrPoBox: String
+  # Postal code
+  addrPostalCode: String
+  # Residing town
+  addrTown: String
+  # Residing county
+  addrCounty: String
+  # Nigga nationality
+  addrNationality: String
+  # User machine IP address
+  ipAddress: String
+  # Time this user instance was created in RESS
+  createdAt: Time
+  # all payments occustrated by this user
+  payments(first: Int, after: String): PaymentsConnection!
+  # messages to the school
+  messages: MessagesConnection!
+  # messages to the school
+  destinations: DestinationsConnection!
+}
+
+type UsersConnection {
+  totalCount: Int!
+  edges: [UsersEdge]
+  pageInfo: PageInfo!
+}
+
+type UsersEdge {
+  cursor: ID!
+  node: User
+}
+
